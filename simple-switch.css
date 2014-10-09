@@ -1,0 +1,65 @@
+.switch .handle,
+.switch .false {
+    display: none; /* Hide extra markup if js is not present */
+}
+.js .switch {
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    display: inline-block;
+    overflow: hidden; /* This prevents the element from expanding to combined width of children */
+    white-space: nowrap; /* This is forces inline children to stay all on one line */
+    width: 125px; /* You need to tweak this depending on the size of the labels */
+}
+.js .switch > .element {
+    display: inline-block;
+    left: 0px;
+    position: relative;
+}
+.js .switch > .element.label {
+    padding: 8px 12px;
+    width: 68px; /* You need to tweak this depending on the size of the labels */
+}
+.js .switch > .element.label.false {
+    text-align: right;
+}
+.js .switch .element.handle {
+    border-radius: 10px;
+    display: absolute;
+    height: 18px;
+    margin: auto 4px;
+    top: 3px;
+    width: 18px;
+}
+.js .switch.off > .element {
+    left: -93px; /* You need to tweak this depending on the size of the labels */
+}
+/* COLORS */
+.js .switch {
+    background-color: green;
+    border-color: green;
+}
+.js .switch .handle {
+    background-color: lightgreen;
+}
+.js .switch.off {
+    background-color: red;
+    border-color: red;
+}
+.js .switch.off .handle {
+    background-color: pink;
+}
+.js .switch .label.true {
+    background-color: lightgreen;
+}
+.js .switch .label.false {
+    background-color: pink;
+}
+/* ANIMATIONS */
+.js .switch, .js .switch .element {
+    -moz-transition: left 100ms linear, border-color 200ms linear, background-color 200ms linear;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-transition: left 100ms linear, border-color 200ms linear, background-color 200ms linear;
+}
