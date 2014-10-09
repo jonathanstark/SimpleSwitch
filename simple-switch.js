@@ -1,5 +1,3 @@
-// Change no-js class to js to the html (ala modernizr) for our CSS to hook into
-$('html').removeClass('no-js').addClass('js');
 $('.simple-switch').each(function(){
     if ($(this).find('input').is(':checked')) {
         $(this).removeClass('off');

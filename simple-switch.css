@@ -1,8 +1,29 @@
-.switch .handle,
-.switch .false {
-    display: none; /* Hide extra markup if js is not present */
+
+/* Hide extra markup if js is not present */
+
+.simple-switch .handle,
+.simple-switch .false {
+    display: none;
 }
-.js .switch {
+
+/* Checkbox styles for browsers that DO NOT have js enabled */
+
+.no-js .simple-switch input[type=checkbox] {
+    -webkit-appearance: none;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 1.5em;
+    padding: 1.5em;
+}
+.no-js .simple-switch .label.true {
+    display: inline-block;
+    position: relative;
+    top: -0.8em;
+}
+
+/* Checkbox styles for browsers that DO have js enabled */
+
+.js .simple-switch {
     border-radius: 5px;
     border-width: 1px;
     border-style: solid;
@@ -11,19 +32,19 @@
     white-space: nowrap; /* This is forces inline children to stay all on one line */
     width: 125px; /* You need to tweak this depending on the size of the labels */
 }
-.js .switch > .element {
+.js .simple-switch > .element {
     display: inline-block;
     left: 0px;
     position: relative;
 }
-.js .switch > .element.label {
+.js .simple-switch > .element.label {
     padding: 8px 12px;
     width: 68px; /* You need to tweak this depending on the size of the labels */
 }
-.js .switch > .element.label.false {
+.js .simple-switch > .element.label.false {
     text-align: right;
 }
-.js .switch .element.handle {
+.js .simple-switch .element.handle {
     border-radius: 10px;
     display: absolute;
     height: 18px;
@@ -31,32 +52,44 @@
     top: 3px;
     width: 18px;
 }
-.js .switch.off > .element {
+.js .simple-switch.off > .element {
     left: -93px; /* You need to tweak this depending on the size of the labels */
 }
-/* COLORS */
-.js .switch {
+
+/* COLORS (js and no-js) */
+
+.no-js .simple-switch input[type=checkbox] {
+    background-color: pink;
+    border-color: gray;
+}
+.no-js .simple-switch input[type=checkbox]:checked {
+    background-color: lightgreen;
+}
+.js .simple-switch {
     background-color: green;
     border-color: green;
 }
-.js .switch .handle {
+.js .simple-switch .handle {
     background-color: lightgreen;
 }
-.js .switch.off {
+.js .simple-switch.off {
     background-color: red;
     border-color: red;
 }
-.js .switch.off .handle {
+.js .simple-switch.off .handle {
     background-color: pink;
 }
-.js .switch .label.true {
+.js .simple-switch .label.true {
     background-color: lightgreen;
 }
-.js .switch .label.false {
+.js .simple-switch .label.false {
     background-color: pink;
 }
+
 /* ANIMATIONS */
-.js .switch, .js .switch .element {
+
+.js .simple-switch,
+.js .simple-switch .element {
     -moz-transition: left 100ms linear, border-color 200ms linear, background-color 200ms linear;
     -webkit-backface-visibility: hidden;
     -webkit-perspective: 1000;
